@@ -214,14 +214,57 @@ for j in range(len(notas[0])):
 • Inicializarlo con guiones "-" representando casillas vacías.
 • Permitir que dos jugadores ingresen posiciones (fila, columna) para colocar "X" o "O".
 • Mostrar el tablero después de cada jugada.
-"""
-print("\nEjercicio 9 \n")
-
 tablero = [
     ["-", "-", "-"],
     ["-", "-", "-"],
     ["-", "-", "-"]
-  ]
+  ] 
+"""
+print("\nEjercicio 9 \n")
+
+tablero = []
+
+for i in range(3):
+    fila = []
+    for j in range(3):
+        fila.append("-")
+    tablero.append(fila)
+
+print("Tablero inicial:", tablero )
+
+for fila in tablero:
+    for celda in fila:
+        print(celda, end=" ")
+    print()
+
+jugador = "X"
+jugadas = 0
+
+while jugadas < 9:
+    print(f"\nTurno del jugador {jugador}")
+    fila = int(input("Ingrese la fila (0, 1, 2): "))
+    columna = int(input("Ingrese la columna (0, 1, 2): "))
+
+    if fila < 0 or fila > 2 or columna < 0 or columna > 2:
+        print("Posición inválida. Intente de nuevo.")
+        continue
+
+    if tablero[fila][columna] != "-":
+        print("Casilla ya ocupada. Intente de nuevo.")
+        continue
+    else:
+        tablero[fila][columna] = jugador
+        jugadas += 1
+
+    for fila in tablero:
+        for celda in fila:
+            print(celda, end=" ")
+        print()
+
+    if jugador == "X":
+        jugador = "O"
+    else:
+        jugador = "X"
 
 """
 10) Una tienda registra las ventas de 4 productos durante 7 días, en una matriz de 4x7.
