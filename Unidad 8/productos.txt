@@ -1,0 +1,4 @@
+Nombre,Precio,Cantidad
+Lapicera,1.2,100
+Hojas,0.8,150
+Carpetas,1.5,200
